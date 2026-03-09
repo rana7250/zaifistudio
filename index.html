@@ -30,48 +30,13 @@
 
 <section id="portfolio">
 <h2>Portfolio</h2>
-<div class="gallery">
-<img src="Images/styles-1.jpg">
-<img src="Images/895._MG_5493-copy.jpg">
-<img src="https://picsum.photos/400/300?3">
-<img src="https://picsum.photos/400/300?4">
-<img src="https://picsum.photos/400/300?5">
-<img src="https://picsum.photos/400/300?6">
-</div>
+<div class="gallery" id="portfolioGallery"></div>
 
 </section>
 
 <section id="services">
 <h2>Services</h2>
-
-<div class="service-grid">
-
-<div class="card">
-<h3>Wedding Photography</h3>
-<p>Cinematic wedding coverage with creative storytelling.</p>
-</div>
-
-<div class="card">
-<h3>Corporate Shoots</h3>
-<p>Professional corporate photography and videography.</p>
-</div>
-
-<div class="card">
-<h3>Real Estate Video</h3>
-<p>Property showcase videos and photos.</p>
-</div>
-
-<div class="card">
-<h3>Reels / Social Media</h3>
-<p>High quality content for Instagram and social media.</p>
-</div>
-
-<div class="card">
-<h3>Model Shoots</h3>
-<p>Creative studio and outdoor model photography.</p>
-</div>
-
-</div>
+<div class="service-grid" id="servicesGrid"></div>
 
 </section>
 
@@ -95,13 +60,16 @@ projects, real estate content and creative shoots.
 
 <input id="mobile" type="tel" placeholder="Mobile" required>
 
-<input id="event" type="text" placeholder="Event" required>
+<input id="location" type="text" placeholder="Location" required>
+
+<select id="event" required></select>
 
 <div class="calendar-wrap">
 <h3>Select Date</h3>
 <div class="calendar-legend">
 <span><i class="dot available"></i> Available</span>
 <span><i class="dot booked"></i> Booked</span>
+<span><i class="dot blocked"></i> Blocked</span>
 </div>
 <div class="calendar-header">
 <button type="button" id="prevMonth" class="cal-nav" aria-label="Previous month">&#10094;</button>
@@ -109,7 +77,8 @@ projects, real estate content and creative shoots.
 <button type="button" id="nextMonth" class="cal-nav" aria-label="Next month">&#10095;</button>
 </div>
 <div class="calendar-grid" id="calendarGrid" aria-label="Booking calendar"></div>
-<input id="selectedDate" type="hidden" required>
+<p id="selectedDatesList" class="selected-dates-list">Selected dates: None</p>
+<input id="selectedDate" type="hidden">
 </div>
 
 <button type="submit" class="wa-submit" aria-label="Send on WhatsApp">

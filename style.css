@@ -108,7 +108,46 @@ gap:10px;
 
 .gallery img{
 width:100%;
-border-radius:5px;
+border-radius:10px;
+display:block;
+}
+
+.portfolio-media{
+width:100%;
+display:block;
+border-radius:10px 10px 0 0;
+max-height:280px;
+object-fit:cover;
+background:#000;
+}
+
+.portfolio-card a{
+display:block;
+text-decoration:none;
+}
+
+.portfolio-card{
+background:#111;
+border:1px solid rgba(255,255,255,0.1);
+border-radius:12px;
+overflow:hidden;
+}
+
+.portfolio-meta{
+display:flex;
+gap:8px;
+padding:10px;
+justify-content:center;
+flex-wrap:wrap;
+}
+
+.portfolio-meta span{
+font-size:12px;
+padding:4px 10px;
+border-radius:999px;
+background:#fcb019;
+color:#111;
+font-weight:700;
 }
 
 .service-grid{
@@ -119,9 +158,6 @@ background:rgba(255, 255, 255, 0);
 backdrop-filter:blur(14px) saturate(140%);
 -webkit-backdrop-filter:blur(14px) saturate(140%);
 box-shadow:0 8px 24px rgba(0, 0, 0, 0.25);
-position:sticky;
-top:0;
-z-index:1000;
 }
 
 .card{
@@ -137,7 +173,7 @@ display:flex;
 flex-direction:column;
 }
 
-input,textarea{
+input,textarea,select{
 margin:10px 0;
 padding:10px;
 border:none;
@@ -183,6 +219,10 @@ background:#25d366;
 
 .dot.booked{
 background:#7d7d7d;
+}
+
+.dot.blocked{
+background:#d64545;
 }
 
 .calendar-header{
@@ -243,14 +283,28 @@ outline:2px solid #fff;
 outline-offset:1px;
 }
 
+.selected-dates-list{
+margin:10px 0 0;
+font-size:13px;
+opacity:0.9;
+}
+
 .day.booked{
 background:#808080;
 color:#e9e9e9;
 cursor:not-allowed;
 }
 
+.day.blocked{
+background:#c23636;
+color:#fff;
+cursor:not-allowed;
+}
+
 .day.booked::before,
-.day.booked::after{
+.day.booked::after,
+.day.blocked::before,
+.day.blocked::after{
 content:"";
 position:absolute;
 left:18%;
@@ -265,6 +319,14 @@ transform:rotate(38deg);
 }
 
 .day.booked::after{
+transform:rotate(-38deg);
+}
+
+.day.blocked::before{
+transform:rotate(38deg);
+}
+
+.day.blocked::after{
 transform:rotate(-38deg);
 }
 
