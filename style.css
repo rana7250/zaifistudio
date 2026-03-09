@@ -1,36 +1,93 @@
 body{
 margin:0;
 font-family:Arial;
-background:#0b0b0b;
+background:#000000;
 color:white;
+}
+
+html{
+scroll-behavior:smooth;
 }
 
 header{
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:20px;
-background:black;
+padding:0px 20px;
+background:rgba(255, 255, 255, 0);
+backdrop-filter:blur(14px) saturate(140%);
+-webkit-backdrop-filter:blur(14px) saturate(140%);
+border-bottom:1px solid rgba(255, 255, 255, 0.15);
+box-shadow:0 8px 24px rgba(0, 0, 0, 0.25);
 position:sticky;
 top:0;
+z-index:1000;
 }
 
 nav a{
+position:relative;
+display:inline-block;
+padding-bottom:6px;
 margin:0 10px;
 color:white;
 text-decoration:none;
+text-shadow:0 1px 1px rgba(255, 255, 255, 0.4);
+}
+
+nav a::after{
+content:"";
+position:absolute;
+left:0;
+bottom:0;
+width:100%;
+height:2px;
+background:#FCB019;
+transform:scaleX(0);
+transform-origin:left;
+transition:transform 0.2s ease;
+}
+
+nav a.active::after{
+transform:scaleX(1);
+}
+
+.brand{
+display:inline-flex;
+align-items:center;
+text-decoration:none;
+background:rgba(216, 48, 48, 0);
+padding:6px 10px;
+}
+
+.brand img{
+height:52px;
+width:auto;
+display:block;
+}
+
+@media (max-width: 720px){
+header{
+flex-direction:column;
+gap:10px;
+}
+
+.brand img{
+height:44px;
+}
 }
 
 .hero{
 text-align:center;
+color: #ffffff;
 padding:120px 20px;
-background:url('https://picsum.photos/1600/800') center/cover;
+background:url("images/bg1.jpg") center/cover;
 }
+
 
 .btn{
 display:inline-block;
 padding:12px 25px;
-background:#e50914;
+background:#FCB019;
 color:white;
 text-decoration:none;
 margin-top:20px;
@@ -39,7 +96,9 @@ margin-top:20px;
 section{
 padding:60px 20px;
 text-align:center;
+scroll-margin-top:92px;
 }
+
 
 .gallery{
 display:grid;
@@ -56,6 +115,13 @@ border-radius:5px;
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:20px;
+background:rgba(255, 255, 255, 0);
+backdrop-filter:blur(14px) saturate(140%);
+-webkit-backdrop-filter:blur(14px) saturate(140%);
+box-shadow:0 8px 24px rgba(0, 0, 0, 0.25);
+position:sticky;
+top:0;
+z-index:1000;
 }
 
 .card{
@@ -78,16 +144,164 @@ border:none;
 border-radius:5px;
 }
 
+.calendar-wrap{
+margin:14px 0 18px;
+background:rgba(255,255,255,0.04);
+border:1px solid rgba(255,255,255,0.1);
+border-radius:12px;
+padding:14px;
+}
+
+.calendar-wrap h3{
+margin:0 0 10px;
+}
+
+.calendar-legend{
+display:flex;
+justify-content:center;
+gap:20px;
+font-size:14px;
+margin-bottom:10px;
+}
+
+.calendar-legend span{
+display:inline-flex;
+align-items:center;
+gap:8px;
+}
+
+.dot{
+width:12px;
+height:12px;
+border-radius:50%;
+display:inline-block;
+}
+
+.dot.available{
+background:#25d366;
+}
+
+.dot.booked{
+background:#7d7d7d;
+}
+
+.calendar-header{
+display:flex;
+align-items:center;
+justify-content:space-between;
+margin-bottom:8px;
+}
+
+#monthLabel{
+margin:0;
+font-weight:600;
+}
+
+.cal-nav{
+width:34px;
+height:34px;
+border-radius:50%;
+border:none;
+background:#1f1f1f;
+color:#fff;
+cursor:pointer;
+}
+
+.calendar-grid{
+display:grid;
+grid-template-columns:repeat(7,1fr);
+gap:7px;
+}
+
+.weekday{
+font-size:12px;
+opacity:0.8;
+padding:4px 0;
+}
+
+.day{
+position:relative;
+height:38px;
+border:none;
+border-radius:8px;
+font-weight:600;
+cursor:pointer;
+}
+
+.day.empty{
+background:transparent;
+cursor:default;
+}
+
+.day.available{
+background:#25d366;
+color:#fff;
+}
+
+.day.selected{
+outline:2px solid #fff;
+outline-offset:1px;
+}
+
+.day.booked{
+background:#808080;
+color:#e9e9e9;
+cursor:not-allowed;
+}
+
+.day.booked::before,
+.day.booked::after{
+content:"";
+position:absolute;
+left:18%;
+width:64%;
+height:2px;
+background:#2f2f2f;
+top:50%;
+}
+
+.day.booked::before{
+transform:rotate(38deg);
+}
+
+.day.booked::after{
+transform:rotate(-38deg);
+}
+
 button{
 padding:12px;
-background:#e50914;
+background:#FCB019;
 border:none;
 color:white;
 }
 
+.wa-submit{
+display:inline-flex;
+align-items:center;
+justify-content:center;
+gap:10px;
+background:#25D366;
+font-weight:600;
+cursor:pointer;
+}
+
+.wa-submit svg{
+width:18px;
+height:18px;
+fill:currentColor;
+}
+
+@media (max-width: 520px){
+.calendar-legend{
+flex-direction:column;
+gap:8px;
+}
+}
+
 footer{
-background:black;
-padding:20px;
+background:rgb(175, 98, 98);
+padding:3px;
+text-align: center;
 }
 
 .whatsapp{
